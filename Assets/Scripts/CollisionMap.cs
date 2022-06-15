@@ -76,7 +76,7 @@ public class CollisionMap : MonoBehaviour
 
     private IEnumerator Method()
     {
-        string url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat.ToString("F7") + "," + lon.ToString("F7") + "&language=ja&result_type=administrative_area_level_1|locality&key=AIzaSyBpw3iO2MP6mfd2rKq6AbBw_1CJ7-86Qyw";
+        string url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat.ToString("F7") + "," + lon.ToString("F7") + "&language=ja&result_type=administrative_area_level_1|locality&key=＜API KEY>";
         //1.UnityWebRequestを生成
         UnityWebRequest request = UnityWebRequest.Get(url);
                 
@@ -99,7 +99,7 @@ public class CollisionMap : MonoBehaviour
                 string plusCode = response.plus_code.compound_code;
                 if(plusCode.IndexOf('、') > 0)
                 {
-                    string urlMeta = "https://maps.googleapis.com/maps/api/streetview/metadata?size=400x400&location=" + lat.ToString("F7") + "," + lon.ToString("F7") + "&source=outdoor&radius=1000000&key=AIzaSyAi7mIOJmMrwO-phbfWl7dx9EpZhamewmQ";
+                    string urlMeta = "https://maps.googleapis.com/maps/api/streetview/metadata?size=400x400&location=" + lat.ToString("F7") + "," + lon.ToString("F7") + "&source=outdoor&radius=1000000&key=＜API KEY>";
                     UnityWebRequest requestMeta = UnityWebRequest.Get(urlMeta);
                     yield return requestMeta.SendWebRequest();
                     if (requestMeta.isHttpError || requestMeta.isNetworkError)
